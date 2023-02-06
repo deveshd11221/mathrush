@@ -24,7 +24,7 @@ box-shadow:  5px 5px 10px #dddddd,
 button {
   all: unset;
   cursor: pointer;
-    color: darkslategray;
+    color: dodgerblue;
     font-weight: 700;
 }
 
@@ -38,4 +38,21 @@ input {
    
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
+}
+
+.results{
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    text-align: center;
+    align-content: flex-end;
+    border-radius: 27px;
+}
+
+
+.scoreboard{
+    border-radius: 27px;
+background: #ebebeb;
+box-shadow: inset 6px 6px 12px #c8c8c8,
+            inset -6px -6px 12px #ffffff;
+    padding: 2vh;
 }
