@@ -1,21 +1,21 @@
 {
-  "name": "Stick-it Notes by Tharun",
-  "short_name": "Stick-it",
-  "start_url": "index.html",
-  "scope": "./",
-  "icons": [
-    {
-      "src": "MATH.png",
-      "sizes": "192x192",
-      "type": "image/png"
+    "name": "Math Rush",
+    "short_name": "Math Rush",
+    "start_url": "index.html",
+    "scope": "./",
+    "icons": [
+        {
+            "src": "MATH.png",
+            "sizes": "192x192",
+            "type": "image/png"
     },
-    {
-      "src": "MATH.png",
-      "sizes": "512x512",
-      "type": "image/png"
+        {
+            "src": "MATH.png",
+            "sizes": "512x512",
+            "type": "image/png"
     }
   ],
-  "theme_color": "#ebebeb",
-  "background_color": "#ebebeb",
-  "display": "fullscreen"
+    "theme_color": "#ebebeb",
+    "background_color": "#ebebeb",
+    "display": "fullscreen"
 }

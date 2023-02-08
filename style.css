@@ -1,54 +1,265 @@
-.box{
-border-radius: 42px;
-background: #ebebeb;
-box-shadow:  5px 5px 10px #dddddd,
-             -5px -5px 10px #f9f9f9;
+body {
+    background: #ebebeb;
+}
+
+.dark-mode {
+    background: #202020;
+}
+
+.box {
+    border-radius: 42px;
+    background: #ebebeb;
+    box-shadow: 5px 5px 10px #dddddd,
+        -5px -5px 10px #f9f9f9;
     height: 10vh;
     width: 100%;
     font-size: 3.5vh;
-        text-align: center;
+    text-align: center;
 }
 
-.numberbox{
-border-radius: 42px;
-background: #ebebeb;
-box-shadow:  5px 5px 10px #dddddd,
-             -5px -5px 10px #f9f9f9;
+.dark-mode .box {
+
+    color: #446DF6;
+    border-radius: 32px;
+    background: #202020;
+    box-shadow: 5px 5px 10px #181818,
+        -5px -5px 10px #282828;
+    height: 10vh;
+    width: 100%;
+    font-size: 3.5vh;
+    text-align: center;
+}
+
+
+.aboutmebox {
+    border-radius: 42px;
+    background: #ebebeb;
+    box-shadow: inset 5px 5px 6px #c8c8c8,
+        inset -5px -5px 6px #ffffff;
+    height: 8.5vh;
+
+    margin: 1vh;
+    font-size: 5.5vh;
+    text-align: center;
+}
+
+.dark-mode .aboutmebox {
+
+    color: #446DF6;
+    border-radius: 32px;
+    background: #202020;
+    box-shadow: inset 5px 5px 6px #101010,
+        inset -5px -5px 6px #303030;
+    height: 8.5vh;
+
+    margin: 1vh;
+    font-size: 5.5vh;
+    text-align: center;
+}
+
+.numberbox {
+    border-radius: 42px;
+    background: #ebebeb;
+    box-shadow: 5px 5px 10px #dddddd,
+        -5px -5px 10px #f9f9f9;
     text-align: center;
     font-size: 3.5vh;
     width: 100%
 }
 
+.dark-mode .numberbox {
+    color: white;
+    border-radius: 42px;
+    background: #202020;
+    box-shadow: 5px 5px 10px #181818,
+        -5px -5px 10px #282828;
+    height: 10vh;
+    width: 100%;
+    font-size: 3.5vh;
+    text-align: center;
+}
 
 
 button {
-  all: unset;
-  cursor: pointer;
+    all: unset;
+    cursor: pointer;
     color: dodgerblue;
     font-weight: 700;
 }
 
 input {
-  all: unset;
-  cursor: pointer;
+    all: unset;
+    cursor: pointer;
     height: 10vh;
 }
 
-.row{
-   
+.row {
+
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
 }
 
-.results{
+.results {
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
     text-align: center;
     align-content: flex-end;
     border-radius: 27px;
+    color: slategray
+}
+
+.dark-mode .results {
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    text-align: center;
+    align-content: flex-end;
+    border-radius: 27px;
+    color: floralwhite;
+}
+
+.scoreboard {
+    padding: 1vh;
 }
 
 
-.scoreboard{
-    padding: 2vh;
+.timer {
+    border-radius: 2vh;
+    background: #ebebeb;
+    box-shadow: inset 7px 7px 14px #cfcfcf,
+        inset -7px -7px 14px #ffffff;
+    height: 10vh;
+    width: 100%;
+    font-size: 3.5vh;
+    text-align: center;
+    align-self: center;
+}
+
+.dark-mode .timer {
+    border-radius: 50px;
+    background: #202020;
+    box-shadow: inset 7px 7px 14px #0d0d0d,
+        inset -7px -7px 14px #333333;
+
+    height: 10vh;
+    width: 100%;
+    font-size: 3.5vh;
+    text-align: center;
+}
+
+.titletext {
+    font-weight: 700;
+    font-family: 'Righteous', cursive;
+    font-size: 8vh;
+
+}
+
+
+.dark-mode .titletext {
+    color: #F6f7eb;
+    font-weight: 100;
+    align-self: center;
+    font-family: 'Righteous', cursive;
+    font-size: 8vh;
+
+}
+
+
+.subtext {
+    font-weight: 300;
+    align-self: center;
+
+}
+
+.dark-mode .subtext {
+    color: #F6f7eb;
+    font-weight: 300;
+    align-self: center;
+
+
+}
+
+
+
+
+
+.home-box {
+    border-radius: 3vh;
+    background: #ebebeb;
+    box-shadow: 5px 5px 10px #dddddd,
+        -5px -5px 10px #f9f9f9;
+    height: 10vh;
+    width: 100%;
+    font-size: 2.75vh;
+    text-align: center;
+    color: slategray;
+}
+
+.dark-mode .home-box {
+
+    border-radius: 3vh;
+    background: #202020;
+    box-shadow: 5px 5px 10px #181818,
+        -5px -5px 10px #282828;
+    height: 10vh;
+    width: 100%;
+    font-size: 2.75vh;
+    text-align: center;
+    color: #EF2D56;
+}
+
+
+
+.home-game-box {
+    border-radius: 3vh;
+    background: #ebebeb;
+    box-shadow: 5px 5px 10px #dddddd,
+        -5px -5px 10px #f9f9f9;
+    height: 10vh;
+    width: 100%;
+    font-size: 2.75vh;
+    text-align: center;
+    color: dodgerblue;
+}
+
+.dark-mode .home-game-box {
+
+    border-radius: 3vh;
+    background: #202020;
+    box-shadow: 5px 5px 10px #181818,
+        -5px -5px 10px #282828;
+    height: 10vh;
+    width: 100%;
+    font-size: 2.75vh;
+    text-align: center;
+    color: #446DF6;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.answer {
+    color: black;
+}
+
+.dark-mode .answer {
+    color: white;
+}
+
+.question {
+    color: slategray;
+}
+
+.dark-mode .question {
+    color: #EF2D56;
+}
+
+
+.neo {
+    border-radius: 20px;
+    background: #ebebeb;
+    box-shadow: 5px 5px 10px #dddddd,
+        -5px -5px 10px #f9f9f9;
+
 }

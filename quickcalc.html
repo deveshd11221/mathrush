@@ -1,0 +1,776 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=yes">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="manifest" href="manifest.json">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <title>Math Rush</title>
+</head>
+
+<body>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <!-- setting the background color -->
+    <div>
+
+        <!-- setting overall width and height -->
+        <div style="width: 100vw; height: 100vh">
+
+            <!-- Top  container -->
+            <div class="container" id="top">
+
+                <!-- Contains the question and the plus minus equal sign -->
+                <p style="font-size: 8vh; font-weight: 700" class="question">
+                    <span class="question" id="number1"></span> <span class="question" id="addsub"></span> <span class="question" id="number2"></span> = <span></span>
+                </p>
+
+                <!-- area where the user will see his or her typed answer -->
+                <input style="font-size: 7vh; max-width: 100%; text-align: right" type="int" class="answer" id="display">
+
+                <!-- Correct or wrong answer -->
+                <p id="result" style="font-size: 3vh; text-align: center">&#160</p>
+                <p id="rounds"></p>
+
+
+
+            </div>
+
+            <!-- This is our results screen, this is hidden in the beginning until the game is actually over. Got it? -->
+            <div class="container results" id="results">
+
+                <!-- this is our header, this will show either good job or bad job-->
+                <p id="congrats" style="font-size: 8vh; padding-top: 3vh;">&#128077</p>
+                <p id="congratsmessage" style="font-size: 3vh; font-weight: 500; padding-bottom: 3vh"></p>
+
+                <!-- This is our score -->
+                <p style="font-size: 4vh; font-weight: 700" class="scoreboard">
+                    &#9989 <span class="answer" id="score"></span>
+                </p>
+
+                <!-- This is our time -->
+                <p style="font-size: 4vh; font-weight: 700" class="scoreboard">
+                    &#8987 <span class="answer" id="time"></span> Seconds
+                </p>
+
+
+
+                <div class="row">
+
+                    <!-- Enter button -->
+                    <div class="col">
+                        <a href="index.html" style="text-decoration: none">
+                            <button class="box" onclick="func()">&#127968 Home</button></a>
+                    </div>
+
+                    <!-- Enter button -->
+                    <div class="col"><button class="box" onClick="window.location.reload()">Again &#9194 </button></div>
+
+                </div>
+
+                <div class="row" style="padding-top: 3vh; padding-left: 2vh; padding-right: 2vh">
+
+                    <p style="question">Play on 📱 and save webpage to home screen for best experience!</p>
+                    <p style="question">Update the app every few months for new changes and features by visiting the latest web-version below 🔽</p>
+                    <!-- Enter button -->
+                    <div class="col">
+                        <a href="index.html" style="text-decoration: none">
+                            <button class="box" onclick="func()">⚙️ Update</button></a>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Bottom container, mostly just contains buttons -->
+            <div class="container" id="bottom">
+                <div class="row">
+
+                    <!-- Clear button -->
+                    <div class="col"><input class="box question" type="button" value="&#128465 &#160 CLEAR" onclick="display.value = ''"></div>
+
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="7" onclick="display.value += '7'">
+                    </div>
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="8" onclick="display.value += '8'">
+                    </div>
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="9" onclick="display.value += '9'">
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="4" onclick="display.value += '4'">
+                    </div>
+
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="5" onclick="display.value += '5'">
+                    </div>
+
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="6" onclick="display.value += '6'">
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="1" onclick="display.value += '1'">
+                    </div>
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="2" onclick="display.value += '2'">
+                    </div>
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="3" onclick="display.value += '3'">
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <input class="numberbox" type="button" value="0" onclick="display.value += '0'">
+                    </div>
+
+                    <!-- Enter button -->
+                    <div class="col"><button class="box" onclick="func()"> ENTER &#128077 </button></div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+<script>
+    //something to do with PWA, do not touch, always copy
+    if ("serviceWorker" in navigator) {
+        // register service worker
+        navigator.serviceWorker.register("sw.js");
+    }
+
+
+    //this is for our dark mode
+    const savedDarkMode = localStorage.getItem('darkMode');
+
+    if (savedDarkMode === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    //generating the random number on initial load
+    var number1 = Math.floor(Math.random() * 20) + 1;
+    var number2 = Math.floor(Math.random() * 10) + 1;
+
+    //displaying the random number on initial load
+    document.getElementById("number1").innerHTML = number1;
+    document.getElementById("number2").innerHTML = number2;
+    document.getElementById("addsub").innerHTML = "+";
+
+    //THIS IS TO KEEP TRACK OF OUR ROUNDS
+    var rounds = 0
+
+    //our score is 0, this keeps track of our score
+    var score = 0
+
+    //hids our results screen in the beginning upon loading
+    document.getElementById('results').hidden = true;
+
+    //this is where I'm creating a variable to see if I want to add or subtract or multiply 
+    var math = 1
+
+
+    //STARTS OUR TIMER
+    window.onload = function() {
+        start = new Date();
+    }
+
+    //whenever the user presses the submit button, this function happens which moves our game forward. 
+    function func() {
+
+
+        switch (math) {
+            case 1:
+
+                //first we have the sum
+                var expectedSum = number1 + number2;
+
+
+                //next we GRAB what the user has entered themselves
+                var userAnswer = parseInt(document.getElementById("display").value);
+
+                //THIS IS TO SHOW IF IT IS CORRECT OR NOT
+                var resultElement = document.getElementById("result");
+                if (userAnswer === expectedSum) {
+
+                    //THIS IS FOR OUR CHECKMARK 
+                    document.getElementById("result").style.color = "green";
+                    document.getElementById("result").style.fontWeight = "700"
+                    resultElement.innerHTML = "&#x2713";
+
+
+                    //In this part, I'm regenerating the value of math to see if we want to do addition, subtraction, or multiplication, and then displaying stuff according like that. 
+                    math = Math.floor(Math.random() * 3) + 1;
+                    switch (math) {
+                        case 1:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 20) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "+";
+                            break;
+
+                        case 2:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 12) + 8;
+                            number2 = Math.floor(Math.random() * 8) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "-";
+                            break;
+
+                        case 3:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 10) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "*";
+                            break;
+                    }
+
+
+
+
+                    //INCREMENT OUR DOUNDS
+                    rounds = rounds + 1
+
+                    //increment our score
+                    score = score + 1
+
+                    //terminate if our rounds hit a certain number
+                    if (rounds > 30) {
+
+
+                        //ENDS OUR TIMER AND CALCULATES THE DIFFERENCE
+                        var end = new Date();
+                        var diff = Math.abs(end - start);
+
+                        //hide and display stuff
+                        document.getElementById('results').hidden = false;
+                        document.getElementById('top').hidden = true;
+                        document.getElementById('bottom').hidden = true;
+
+                        //displaying different results depending on how good or bad we perform lmao
+                        if (score > 26) {
+                            document.getElementById("congrats").innerHTML = "&#128077";
+                            document.getElementById("congratsmessage").innerHTML = "Good Job";
+                        } else {
+                            document.getElementById("congrats").innerHTML = "&#128078";
+                            document.getElementById("congratsmessage").innerHTML = "Improvement Needed";
+                        }
+
+                        document.getElementById("score").innerHTML = score;
+                        document.getElementById("time").innerHTML = diff / 1000;
+
+                        //document.getElementById("number1").innerHTML = diff;
+
+                    }
+
+                } else {
+
+                    //IF THE USER GETS IT WRONG, DISPLAY A RED CHECK MARK AND ASK THEM TO TRY AGAIN 
+                    //right now we don't move on to the next number, but I think that we might and if we do then I simply just copy the code from above
+                    document.getElementById("result").style.color = "red";
+                    document.getElementById("result").style.fontWeight = "700"
+                    resultElement.innerHTML = "X";
+                    document.getElementById("display").value = " ";
+
+                    //In this part, I'm regenerating the value of math to see if we want to do addition, subtraction, or multiplication, and then displaying stuff according like that. 
+                    math = Math.floor(Math.random() * 3) + 1;
+                    switch (math) {
+                        case 1:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 20) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "+";
+                            break;
+
+                        case 2:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 12) + 8;
+                            number2 = Math.floor(Math.random() * 8) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "-";
+                            break;
+
+                        case 3:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 10) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "*";
+                            break;
+                    }
+
+
+
+
+                    //INCREMENT OUR DOUNDS
+                    rounds = rounds + 1
+
+                    //increment our score NOT OVER HERE NUH UH
+                    //score = score + 1
+
+                    //terminate if our rounds hit a certain number
+                    if (rounds > 30) {
+
+
+                        //ENDS OUR TIMER AND CALCULATES THE DIFFERENCE
+                        var end = new Date();
+                        var diff = Math.abs(end - start);
+
+                        //hide and display stuff
+                        document.getElementById('results').hidden = false;
+                        document.getElementById('top').hidden = true;
+                        document.getElementById('bottom').hidden = true;
+
+                        //displaying different results depending on how good or bad we perform lmao
+                        if (score > 26) {
+                            document.getElementById("congrats").innerHTML = "&#128077";
+                            document.getElementById("congratsmessage").innerHTML = "Good Job";
+                        } else {
+                            document.getElementById("congrats").innerHTML = "&#128078";
+                            document.getElementById("congratsmessage").innerHTML = "Improvement Needed";
+                        }
+
+                        document.getElementById("score").innerHTML = score;
+                        document.getElementById("time").innerHTML = diff / 1000;
+
+                        //document.getElementById("number1").innerHTML = diff;
+
+                    }
+
+
+
+                }
+                break;
+
+
+            case 2:
+
+                //first we have the sum
+                var expectedSum = number1 - number2;
+
+
+                //next we GRAB what the user has entered themselves
+                var userAnswer = parseInt(document.getElementById("display").value);
+
+                //THIS IS TO SHOW IF IT IS CORRECT OR NOT
+                var resultElement = document.getElementById("result");
+                if (userAnswer === expectedSum) {
+
+                    //THIS IS FOR OUR CHECKMARK 
+                    document.getElementById("result").style.color = "green";
+                    document.getElementById("result").style.fontWeight = "700"
+                    resultElement.innerHTML = "&#x2713";
+
+
+                    //In this part, I'm regenerating the value of math to see if we want to do addition, subtraction, or multiplication, and then displaying stuff according like that. 
+                    math = Math.floor(Math.random() * 3) + 1;
+                    switch (math) {
+                        case 1:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 20) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "+";
+                            break;
+
+                        case 2:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 12) + 8;
+                            number2 = Math.floor(Math.random() * 8) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "-";
+                            break;
+
+                        case 3:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 10) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "*";
+                            break;
+                    }
+
+
+
+
+                    //INCREMENT OUR DOUNDS
+                    rounds = rounds + 1
+
+                    //increment our score
+                    score = score + 1
+
+                    //terminate if our rounds hit a certain number
+                    if (rounds > 30) {
+
+
+                        //ENDS OUR TIMER AND CALCULATES THE DIFFERENCE
+                        var end = new Date();
+                        var diff = Math.abs(end - start);
+
+                        //hide and display stuff
+                        document.getElementById('results').hidden = false;
+                        document.getElementById('top').hidden = true;
+                        document.getElementById('bottom').hidden = true;
+
+                        //displaying different results depending on how good or bad we perform lmao
+                        if (score > 26) {
+                            document.getElementById("congrats").innerHTML = "&#128077";
+                            document.getElementById("congratsmessage").innerHTML = "Good Job";
+                        } else {
+                            document.getElementById("congrats").innerHTML = "&#128078";
+                            document.getElementById("congratsmessage").innerHTML = "Improvement Needed";
+                        }
+
+                        document.getElementById("score").innerHTML = score;
+                        document.getElementById("time").innerHTML = diff / 1000;
+
+                        //document.getElementById("number1").innerHTML = diff;
+
+                    }
+
+                } else {
+
+                    //IF THE USER GETS IT WRONG, DISPLAY A RED CHECK MARK AND ASK THEM TO TRY AGAIN 
+                    //right now we don't move on to the next number, but I think that we might and if we do then I simply just copy the code from above
+                    document.getElementById("result").style.color = "red";
+                    document.getElementById("result").style.fontWeight = "700"
+                    resultElement.innerHTML = "X";
+                    document.getElementById("display").value = " ";
+
+                    //In this part, I'm regenerating the value of math to see if we want to do addition, subtraction, or multiplication, and then displaying stuff according like that. 
+                    math = Math.floor(Math.random() * 3) + 1;
+                    switch (math) {
+                        case 1:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 20) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "+";
+                            break;
+
+                        case 2:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 12) + 8;
+                            number2 = Math.floor(Math.random() * 8) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "-";
+                            break;
+
+                        case 3:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 10) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "*";
+                            break;
+                    }
+
+
+
+
+                    //INCREMENT OUR DOUNDS
+                    rounds = rounds + 1
+
+
+
+                    //terminate if our rounds hit a certain number
+                    if (rounds > 30) {
+
+
+                        //ENDS OUR TIMER AND CALCULATES THE DIFFERENCE
+                        var end = new Date();
+                        var diff = Math.abs(end - start);
+
+                        //hide and display stuff
+                        document.getElementById('results').hidden = false;
+                        document.getElementById('top').hidden = true;
+                        document.getElementById('bottom').hidden = true;
+
+                        //displaying different results depending on how good or bad we perform lmao
+                        if (score > 26) {
+                            document.getElementById("congrats").innerHTML = "&#128077";
+                            document.getElementById("congratsmessage").innerHTML = "Good Job";
+                        } else {
+                            document.getElementById("congrats").innerHTML = "&#128078";
+                            document.getElementById("congratsmessage").innerHTML = "Improvement Needed";
+                        }
+
+                        document.getElementById("score").innerHTML = score;
+                        document.getElementById("time").innerHTML = diff / 1000;
+
+                        //document.getElementById("number1").innerHTML = diff;
+
+                    }
+
+
+
+                }
+                break;
+
+            case 3:
+
+                //first we have the sum
+                var expectedSum = number1 * number2;
+
+
+                //next we GRAB what the user has entered themselves
+                var userAnswer = parseInt(document.getElementById("display").value);
+
+                //THIS IS TO SHOW IF IT IS CORRECT OR NOT
+                var resultElement = document.getElementById("result");
+                if (userAnswer === expectedSum) {
+
+                    //THIS IS FOR OUR CHECKMARK 
+                    document.getElementById("result").style.color = "green";
+                    document.getElementById("result").style.fontWeight = "700"
+                    resultElement.innerHTML = "&#x2713";
+
+
+                    //In this part, I'm regenerating the value of math to see if we want to do addition, subtraction, or multiplication, and then displaying stuff according like that. 
+                    math = Math.floor(Math.random() * 3) + 1;
+                    switch (math) {
+                        case 1:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 20) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "+";
+                            break;
+
+                        case 2:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 12) + 8;
+                            number2 = Math.floor(Math.random() * 8) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "-";
+                            break;
+
+                        case 3:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 10) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "*";
+                            break;
+                    }
+
+
+
+
+                    //INCREMENT OUR DOUNDS
+                    rounds = rounds + 1
+
+                    //increment our score
+                    score = score + 1
+
+                    //terminate if our rounds hit a certain number
+                    if (rounds > 30) {
+
+
+                        //ENDS OUR TIMER AND CALCULATES THE DIFFERENCE
+                        var end = new Date();
+                        var diff = Math.abs(end - start);
+
+                        //hide and display stuff
+                        document.getElementById('results').hidden = false;
+                        document.getElementById('top').hidden = true;
+                        document.getElementById('bottom').hidden = true;
+
+                        //displaying different results depending on how good or bad we perform lmao
+                        if (score > 26) {
+                            document.getElementById("congrats").innerHTML = "&#128077";
+                            document.getElementById("congratsmessage").innerHTML = "Good Job";
+                        } else {
+                            document.getElementById("congrats").innerHTML = "&#128078";
+                            document.getElementById("congratsmessage").innerHTML = "Improvement Needed";
+                        }
+
+                        document.getElementById("score").innerHTML = score;
+                        document.getElementById("time").innerHTML = diff / 1000;
+
+                        //document.getElementById("number1").innerHTML = diff;
+
+                    }
+
+                } else {
+
+                    //IF THE USER GETS IT WRONG, DISPLAY A RED CHECK MARK AND ASK THEM TO TRY AGAIN 
+                    //right now we don't move on to the next number, but I think that we might and if we do then I simply just copy the code from above
+                    document.getElementById("result").style.color = "red";
+                    document.getElementById("result").style.fontWeight = "700"
+                    resultElement.innerHTML = "X";
+                    document.getElementById("display").value = " ";
+
+                    //In this part, I'm regenerating the value of math to see if we want to do addition, subtraction, or multiplication, and then displaying stuff according like that. 
+                    math = Math.floor(Math.random() * 3) + 1;
+                    switch (math) {
+                        case 1:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 20) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "+";
+                            break;
+
+                        case 2:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 12) + 8;
+                            number2 = Math.floor(Math.random() * 8) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "-";
+                            break;
+
+                        case 3:
+                            //AFTER THE USER GETS IT CORRECT, WE GENERATE NUMBERS AND REPLACE THE RESULT 
+                            number1 = Math.floor(Math.random() * 10) + 1;
+                            number2 = Math.floor(Math.random() * 10) + 1;
+                            document.getElementById("number1").innerHTML = number1;
+                            document.getElementById("number2").innerHTML = number2;
+                            document.getElementById("display").value = " ";
+                            document.getElementById("addsub").innerHTML = "*";
+                            break;
+                    }
+
+
+
+
+                    //INCREMENT OUR DOUNDS
+                    rounds = rounds + 1
+
+
+
+                    //terminate if our rounds hit a certain number
+                    if (rounds > 30) {
+
+
+                        //ENDS OUR TIMER AND CALCULATES THE DIFFERENCE
+                        var end = new Date();
+                        var diff = Math.abs(end - start);
+
+                        //hide and display stuff
+                        document.getElementById('results').hidden = false;
+                        document.getElementById('top').hidden = true;
+                        document.getElementById('bottom').hidden = true;
+
+                        //displaying different results depending on how good or bad we perform lmao
+                        if (score > 26) {
+                            document.getElementById("congrats").innerHTML = "&#128077";
+                            document.getElementById("congratsmessage").innerHTML = "Good Job";
+                        } else {
+                            document.getElementById("congrats").innerHTML = "&#128078";
+                            document.getElementById("congratsmessage").innerHTML = "Improvement Needed";
+                        }
+
+                        document.getElementById("score").innerHTML = score;
+                        document.getElementById("time").innerHTML = diff / 1000;
+
+                        //document.getElementById("number1").innerHTML = diff;
+
+                    }
+
+
+
+
+                }
+                break;
+
+
+        }
+
+
+
+    }
+
+</script>
